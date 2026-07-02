@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bullock Dirt Works — Demolition & Excavation Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --charcoal-950: #090d16;
+  --charcoal-900: #0f172a;
+  --charcoal-800: #1e293b;
+  --charcoal-700: #334155;
+  --charcoal-600: #475569;
+  --charcoal-50: #f8fafc;
+  --white: #ffffff;
+  
+  /* Construction safety & equipment accent color scheme */
+  --amber-500: #f59e0b;
+  --amber-400: #fbbf24;
+  --amber-600: #d97706;
+  --amber-100: #fef3c7;
+  
+  --border: #e2e8f0;
+  --border-dark: #334155;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--charcoal-50);
+  color: var(--charcoal-800);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--charcoal-900);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(9, 13, 22, 0.8);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 0 48px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+nav.scrolled {
+  height: 64px;
+  background: rgba(9, 13, 22, 0.95);
+  box-shadow: var(--shadow-md);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: -0.5px;
+}
+.logo-icon {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+.logo-text span {
+  color: var(--amber-500);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: var(--transition);
+  position: relative;
+  padding: 8px 0;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 0; height: 2px;
+  background: var(--amber-500);
+  transition: var(--transition);
+}
+.nav-links a:hover {
+  color: var(--white);
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+.nav-cta {
+  background: var(--amber-500);
+  color: var(--charcoal-950) !important;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: var(--transition);
+}
+.nav-cta:hover {
+  background: var(--amber-400);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+.nav-cta:hover::after {
+  width: 0 !important;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  margin: 5px 0;
+  transition: var(--transition);
+}
+
+/* ── HERO ── */
+.hero {
+  padding-top: 76px;
+  min-height: 95vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: var(--charcoal-950);
+  color: var(--white);
+  overflow: hidden;
+}
+/* Structural topographic lines mask */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 48px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-content {
+  max-width: 680px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-dark);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--amber-400);
+  margin-bottom: 28px;
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--amber-500);
+  animation: pulse 1.5s infinite;
+}
+.hero h1 {
+  font-size: clamp(44px, 6vw, 76px);
+  color: var(--white);
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+  font-weight: 900;
+}
+.hero h1 span {
+  color: var(--amber-500);
+  display: block;
+  font-size: 0.95em;
+  letter-spacing: -1px;
+}
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #94a3b8;
+  margin-bottom: 44px;
+}
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+  transition: var(--transition);
+}
+.btn-primary:hover {
+  background: var(--amber-400);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  border: 1px solid var(--border-dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-secondary:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.05);
+  transform: translateY(-2px);
+}
+
+/* Hero Excavator / Machinery graphic outline */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.visual-card {
+  width: 100%;
+  aspect-ratio: 1.1 / 1;
+  background: #111827;
+  border: 1px solid var(--border-dark);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+.topo-lines {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, transparent 60%, rgba(245,158,11,0.03) 61%, rgba(245,158,11,0.03) 63%, transparent 64%),
+    radial-gradient(circle at 50% 50%, transparent 40%, rgba(245,158,11,0.03) 41%, rgba(245,158,11,0.03) 43%, transparent 44%),
+    radial-gradient(circle at 50% 50%, transparent 20%, rgba(245,158,11,0.03) 21%, rgba(245,158,11,0.03) 23%, transparent 24%);
+  opacity: 0.6;
+}
+.shovel-graphic {
+  width: 120px;
+  height: 120px;
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px dashed var(--amber-500);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  font-size: 48px;
+  color: var(--amber-500);
+  animation: float 4s ease-in-out infinite;
+}
+.visual-title {
+  color: var(--white);
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+.visual-desc {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  max-width: 260px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── MARQUEE TICKER ── */
+.ticker {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  padding: 16px 0;
+  overflow: hidden;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 14px;
+  border-top: 2px solid var(--charcoal-950);
+  border-bottom: 2px solid var(--charcoal-950);
+}
+.ticker-track {
+  display: flex;
+  animation: ticker 25s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+  gap: 40px;
+}
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.ticker-item::after {
+  content: '★';
+  color: var(--charcoal-950);
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: var(--charcoal-900);
+  border-bottom: 1px solid var(--border-dark);
+  padding: 60px 48px;
+}
+.stats-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.stat-item {
+  border-right: 1px solid var(--border-dark);
+}
+.stat-item:last-child {
+  border-right: none;
+}
+.stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--amber-500);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.stat-label {
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.stat-desc {
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* ── SECTION STRUCTURES ── */
+section.pad-section {
+  padding: 120px 48px;
+  scroll-margin-top: 76px;
+}
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.section-header {
+  max-width: 680px;
+  margin-bottom: 72px;
+}
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber-600);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.section-title {
+  font-size: clamp(34px, 4.5vw, 52px);
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--charcoal-600);
+}
+
+/* ── SERVICES BENTO GRID ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: var(--charcoal-900);
+  transition: var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--slate-300);
+}
+.service-card:hover::before {
+  background: var(--amber-500);
+  width: 6px;
+}
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--charcoal-50);
+  color: var(--charcoal-900);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 32px;
+  transition: var(--transition);
+  border: 1px solid var(--border);
+}
+.service-card:hover .service-icon {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  border-color: var(--amber-500);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2);
+}
+.service-title {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.service-desc {
+  font-size: 15px;
+  color: var(--charcoal-600);
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+.service-bullets {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+  margin-bottom: 32px;
+}
+.service-bullets li {
+  font-size: 13px;
+  color: var(--charcoal-500);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.service-bullets li::before {
+  content: '▪';
+  color: var(--amber-500);
+  font-size: 14px;
+}
+.service-btn {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal-900);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+}
+.service-card:hover .service-btn {
+  color: var(--amber-600);
+}
+
+/* ── CAPABILITIES / EQUIPMENT SHOWCASE ── */
+.cap-section {
+  background: var(--charcoal-900);
+  color: var(--white);
+}
+.cap-section .section-title {
+  color: var(--white);
+}
+.cap-section .section-sub {
+  color: #94a3b8;
+}
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.cap-card {
+  background: #111827;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  transition: var(--transition);
+}
+.cap-card:hover {
+  border-color: var(--amber-500);
+  transform: translateY(-4px);
+}
+.cap-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--amber-400);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.cap-title {
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.cap-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* ── WHY BULLOCK (BENTO LAYOUT) ── */
+.why-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+.why-details h3 {
+  font-size: 36px;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+.why-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.why-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: var(--transition);
+}
+.why-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--slate-300);
+}
+.why-icon {
+  background: var(--amber-100);
+  color: var(--amber-600);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.why-text h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+.why-text p {
+  font-size: 13px;
+  color: var(--charcoal-500);
+}
+
+/* ── REVIEWS SECTION ── */
+.reviews-section {
+  background: var(--charcoal-950);
+  color: var(--white);
+  border-top: 1px solid var(--border-dark);
+}
+.reviews-section .section-title {
+  color: var(--white);
+}
+.reviews-section .section-sub {
+  color: #94a3b8;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.review-card {
+  background: #111827;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  transition: var(--transition);
+}
+.review-card:hover {
+  border-color: var(--amber-500);
+}
+.review-stars {
+  color: var(--amber-400);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.review-text {
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.review-author {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+}
+.review-author span {
+  color: #64748b;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+/* ── CONTACT/BID REQUEST FORM ── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+.contact-info .hero-sub {
+  margin-bottom: 40px;
+}
+.info-list {
+  list-style: none;
+  margin-bottom: 48px;
+}
+.info-list li {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.info-icon {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.2);
+}
+.info-text h5 {
+  font-size: 13px;
+  color: var(--charcoal-500);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.info-text p {
+  font-size: 18px;
+  color: var(--charcoal-900);
+  font-weight: 700;
+}
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--charcoal-900);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: var(--transition);
+}
+.instagram-link:hover {
+  color: var(--amber-600);
+}
+
+.form-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  box-shadow: var(--shadow-lg);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--charcoal-700);
+  margin-bottom: 8px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--charcoal-50);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: var(--charcoal-900);
+  outline: none;
+  transition: var(--transition);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  background: var(--white);
+  border-color: var(--amber-500);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+.form-submit-btn {
+  width: 100%;
+  background: var(--charcoal-900);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 16px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.form-submit-btn:hover {
+  background: var(--amber-500);
+  color: var(--charcoal-950);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal-950);
+  color: var(--white);
+  padding: 80px 48px 40px;
+  border-top: 1px solid var(--border-dark);
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  border-bottom: 1px solid var(--border-dark);
+  padding-bottom: 48px;
+  margin-bottom: 40px;
+}
+.footer-info .logo {
+  margin-bottom: 20px;
+}
+.footer-info p {
+  color: #64748b;
+  font-size: 14px;
+  max-width: 360px;
+  margin-bottom: 24px;
+}
+.footer-tagline {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  color: var(--amber-500);
+  font-size: 16px;
+}
+.footer-links-layout {
+  display: flex;
+  justify-content: flex-end;
+  gap: 80px;
+}
+.footer-col h5 {
+  color: var(--white);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+.footer-col ul li a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 13px;
+  transition: var(--transition);
+}
+.footer-col ul li a:hover {
+  color: var(--white);
+}
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #475569;
+  font-size: 12px;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(-15deg); }
+  50% { transform: translateY(-10px) rotate(-12deg); }
+  100% { transform: translateY(0px) rotate(-15deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 0 24px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .hero-content { max-width: 100%; }
+  .hero-badge, .hero-btns { justify-content: center; }
+  .hero-visual { max-width: 500px; margin: 0 auto; width: 100%; }
+  .stats-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border-dark); padding-bottom: 20px; }
+  .stat-item:nth-child(3), .stat-item:nth-child(4) { border-bottom: none; padding-bottom: 0; }
+  .services-grid { grid-template-columns: 1fr; }
+  .cap-grid { grid-template-columns: 1fr 1fr; }
+  .why-layout { grid-template-columns: 1fr; gap: 40px; }
+  .contact-layout { grid-template-columns: 1fr; gap: 48px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .footer-links-layout { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  nav .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  section.pad-section { padding: 80px 24px; }
+  .stats-inner { grid-template-columns: 1fr; }
+  .stat-item { border-bottom: 1px solid var(--border-dark) !important; padding-bottom: 20px !important; }
+  .stat-item:last-child { border-bottom: none !important; padding-bottom: 0 !important; }
+  .cap-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-links-layout { flex-direction: column; gap: 40px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">B</div>
+    <div class="logo-text">Bullock<span>DirtWorks</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Request a Bid</a></li>
+  </ul>
+  <button class="nav-toggle" id="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Excavation & Demolition Contractor
+      </div>
+      <h1>The Earth Won't<br>Move Itself. <span>Let Us Do The Heavy Lifting.</span></h1>
+      <p class="hero-sub">Bullock Dirt Works delivers commercial and residential site preparation, land clearing, demolition, and custom excavation. Equipped with top-tier machinery and local expertise to break ground on your vision.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Request Project Bid</a>
+        <a href="#services" class="btn-secondary">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="visual-card">
+        <div class="topo-lines"></div>
+        <div class="shovel-graphic">⛟</div>
+        <h3 class="visual-title">Heavy Equipment Ready</h3>
+        <p class="visual-desc">Handling structural demolition, site leveling, and precision grading across Missouri.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER MARQUEE -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">
+      <span>Site Prep</span>
+      <span>•</span>
+      <span>Demolition</span>
+      <span>•</span>
+      <span>Precision Grading</span>
+      <span>•</span>
+      <span>Pond Digging</span>
+      <span>•</span>
+      <span>Land Clearing</span>
+      <span>•</span>
+      <span>Driveway Prep</span>
+    </div>
+    <!-- duplicate for continuous loop -->
+    <div class="ticker-item">
+      <span>Site Prep</span>
+      <span>•</span>
+      <span>Demolition</span>
+      <span>•</span>
+      <span>Precision Grading</span>
+      <span>•</span>
+      <span>Pond Digging</span>
+      <span>•</span>
+      <span>Land Clearing</span>
+      <span>•</span>
+      <span>Driveway Prep</span>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">573</div>
+      <div class="stat-label">Local Operator</div>
+      <div class="stat-desc">Serving central Missouri</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Licensed & Insured</div>
+      <div class="stat-desc">Complete liability coverage</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">24Hr</div>
+      <div class="stat-label">Bid Turnaround</div>
+      <div class="stat-desc">Fast, transparent pricing</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Hassle Guarantee</div>
+      <div class="stat-desc">We manage permits & disposal</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="pad-section" id="services">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Core Services</span>
+      <h2 class="section-title">Professional site development from the ground up.</h2>
+      <p class="section-sub">Whether preparing a residential home lot, digging farm ponds, or tearing down commercial structures, we possess the horsepower and precision required for the task.</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- Site Prep & Excavation -->
+      <div class="service-card">
+        <div class="service-icon">⛏</div>
+        <h3 class="service-title">Excavation & Trenching</h3>
+        <p class="service-desc">Precision digging for residential foundations, commercial footings, utility lines, and septic systems. We dig accurately to plan specifications.</p>
+        <ul class="service-bullets">
+          <li>Foundation Digging</li>
+          <li>Utility Trenching</li>
+          <li>Septic & Sewer Lines</li>
+          <li>Basement Excavation</li>
+        </ul>
+        <a href="#contact" class="service-btn">Request Excavation Bid →</a>
+      </div>
+      
+      <!-- Demolition & Hauling -->
+      <div class="service-card">
+        <div class="service-icon">⚒</div>
+        <h3 class="service-title">Complete Demolition</h3>
+        <p class="service-desc">Safe, efficient tear-down of old structures, residential buildings, barns, and concrete pads. We handle permitting, execution, and hauling.</p>
+        <ul class="service-bullets">
+          <li>Residential Tear-downs</li>
+          <li>Barn & Shed Demolition</li>
+          <li>Concrete Slab Removal</li>
+          <li>Debris Hauling & Salvage</li>
+        </ul>
+        <a href="#contact" class="service-btn">Request Demolition Bid →</a>
+      </div>
+      
+      <!-- Site Grading & Clearing -->
+      <div class="service-card">
+        <div class="service-icon">⛟</div>
+        <h3 class="service-title">Land Clearing & Grading</h3>
+        <p class="service-desc">Transform raw brush into construction-ready sites. We clear trees, level slopes, optimize land drainage, and prepare driveways/lot entries.</p>
+        <ul class="service-bullets">
+          <li>Brush & Tree Clearing</li>
+          <li>Drainage Solutions</li>
+          <li>Driveway & Lot Prep</li>
+          <li>Finish Grading & Leveling</li>
+        </ul>
+        <a href="#contact" class="service-btn">Request Site Grading Bid →</a>
+      </div>
+      
+      <!-- Specialized Farm Dirt Works -->
+      <div class="service-card">
+        <div class="service-icon">♁</div>
+        <h3 class="service-title">Specialty Dirt Works</h3>
+        <p class="service-desc">Custom agricultural earthmoving, pond creation, retention basin digging, erosion control, and large-scale gravel driveway stabilization.</p>
+        <ul class="service-bullets">
+          <li>Farm Pond Digging</li>
+          <li>Washout Repairs</li>
+          <li>Culvert Installation</li>
+          <li>Erosion Control Barriers</li>
+        </ul>
+        <a href="#contact" class="service-btn">Request Specialty Bid →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES & EQUIPMENT -->
+<section class="pad-section cap-section" id="capabilities">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Our Capabilities</span>
+      <h2 class="section-title">The right machinery for every job scale.</h2>
+      <p class="section-sub">We own and operate heavy machinery, ensuring your project timeline never halts due to rental delays.</p>
+    </div>
+    
+    <div class="cap-grid">
+      <div class="cap-card">
+        <div class="cap-tag">Heavy Excavators</div>
+        <h3 class="cap-title">Precision Excavators</h3>
+        <p class="cap-desc">Equipped for heavy digging, pond clearing, and deep trenches. Smooth controls ensure safe work close to existing utilities.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-tag">Compact Loaders</div>
+        <h3 class="cap-title">Track Skid Steers</h3>
+        <p class="cap-desc">High-speed earth movement, grading, and site cleanup. Rubber tracks protect driveways and reduce lawn impact.</p>
+      </div>
+      <div class="cap-card">
+        <div class="cap-tag">Tandem Dumpers</div>
+        <h3 class="cap-title">Hauling & Disposal</h3>
+        <p class="cap-desc">Prompt debris disposal and dirt/gravel supply hauling. We bring in clean fill dirt, limestone aggregate, and topsoil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="pad-section" id="why-us">
+  <div class="section-inner why-layout">
+    <div class="why-details">
+      <span class="section-eyebrow">Why Bullock</span>
+      <h3>Built on performance and local trust.</h3>
+      <p class="section-sub" style="margin-bottom: 32px;">At Bullock Dirt Works, we live by our tagline: *The Earth Won't Move Itself*. We show up on time, operate with extreme precision, and stand behind our bids.</p>
+      <a href="#contact" class="btn-primary">Get Your Free Estimate</a>
+    </div>
+    <div class="why-cards">
+      <div class="why-card">
+        <div class="why-icon">1</div>
+        <div class="why-text">
+          <h4>Guaranteed Bid Integrity</h4>
+          <p>The price we quote is the price you pay. No hidden change orders or yardage fees.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">2</div>
+        <div class="why-text">
+          <h4>Meticulous Safety Protocols</h4>
+          <p>We manage all underground utility markings (Dig Rite) and execute tasks with certified safety barriers.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">3</div>
+        <div class="why-text">
+          <h4>Advanced Grading Technology</h4>
+          <p>Laser-guided grading equipment guarantees flat sub-bases, preventing future foundation issues.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="pad-section reviews-section" id="reviews">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-eyebrow">Reviews</span>
+      <h2 class="section-title">What clients are saying.</h2>
+      <p class="section-sub">Providing top-tier service to our local community with pride.</p>
+    </div>
+    
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Bullock Dirt Works cleared over two acres of dense brush and graded our house lot. The site was completely level, drainage is perfect, and they finished ahead of schedule. Incredible operator skill!"</p>
+        <div class="review-author">Marcus Thompson <span>— Landowner</span></div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We needed an old barn and concrete silo demolished. They handled the permits, knocked it down safely, and left the site completely clean. High-quality work and professional communication."</p>
+        <div class="review-author">Elena Rodriguez <span>— Property Owner</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & BID REQUEST -->
+<section class="pad-section" id="contact" style="background: var(--white); border-top: 1px solid var(--border);">
+  <div class="section-inner contact-layout">
+    <div class="contact-info">
+      <span class="section-eyebrow">Contact Us</span>
+      <h3>Let's get moving.</h3>
+      <p class="hero-sub" style="margin-bottom: 32px;">Need dirt moved, structures demolished, or a site prepared? Contact Bullock Dirt Works today. We'll consult on your project and deliver a comprehensive bid.</p>
+      
+      <ul class="info-list">
+        <li>
+          <div class="info-icon">☏</div>
+          <div class="info-text">
+            <h5>Call or Text</h5>
+            <p>(573) 216-0190</p>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">✉</div>
+          <div class="info-text">
+            <h5>Email</h5>
+            <p>Bullockdirtworks@gmail.com</p>
+          </div>
+        </li>
+        <li>
+          <div class="info-icon">⌂</div>
+          <div class="info-text">
+            <h5>Office Address</h5>
+            <p>131 HWY O</p>
+          </div>
+        </li>
+      </ul>
+      
+      <a href="https://instagram.com/bullockdirtworks" target="_blank" class="instagram-link">
+        Follow us on Instagram @bullockdirtworks →
+      </a>
+    </div>
+    
+    <div class="form-box">
+      <form id="bid-form" onsubmit="event.preventDefault(); alert('Bid Request Submitted! We will review and contact you shortly.');">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Contact Name</label>
+            <input type="text" id="name" required placeholder="John Doe">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" required placeholder="(573) 216-0190">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="site-address">Project Location / Address</label>
+          <input type="text" id="site-address" required placeholder="131 HWY O">
+        </div>
+        <div class="form-group">
+          <label for="service-type">Requested Service</label>
+          <select id="service-type">
+            <option value="excavation">Excavation & Trenching</option>
+            <option value="demolition">Structure Demolition</option>
+            <option value="grading">Site Prep & Grading</option>
+            <option value="specialty">Specialty / Farm Pond</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="details">Project Scope & Details</label>
+          <textarea id="details" rows="4" placeholder="Describe the job: soil type, approximate size, access issues, timeline..."></textarea>
+        </div>
+        <button type="submit" class="form-submit-btn">Submit Bid Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-info">
+      <a href="#" class="logo">
+        <div class="logo-icon">B</div>
+        <div class="logo-text">Bullock<span>DirtWorks</span></div>
+      </a>
+      <p>Providing precision excavation, site development, land clearing, and structural demolition services across central Missouri.</p>
+      <div class="footer-tagline">"The Earth Won’t Move Itself."</div>
+    </div>
+    <div class="footer-links-layout">
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="#contact">Call / Text</a></li>
+          <li><a href="#contact">Email Us</a></li>
+          <li><a href="#contact">Office Map</a></li>
+          <li><a href="https://instagram.com/bullockdirtworks" target="_blank">Instagram Feed</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Bullock Dirt Works. All rights reserved.</p>
+    <p>Premium Site Developers • 573 Area Code</p>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll styling
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Mobile Toggle Navigation
+const navToggle = document.getElementById('nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+navToggle.addEventListener('click', () => {
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = 'none';
+  } else {
+    navLinks.style.display = 'flex';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '100%';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.background = '#090d16';
+    navLinks.style.padding = '20px';
+    navLinks.style.borderBottom = '1px solid #334155';
+    navLinks.style.gap = '20px';
+  }
+});
+</script>
+</body>
+</html>
